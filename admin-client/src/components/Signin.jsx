@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 import {Card, Typography} from "@mui/material";
 import {useState} from "react";
 import axios from "axios";
+import { BASE_URL } from "../config.js";
 import {useNavigate} from "react-router-dom";
 import {useSetRecoilState} from "recoil";
 import {userState} from "../store/atoms/user.js";
@@ -51,7 +52,7 @@ function Signin() {
                     size={"large"}
                     variant="contained"
                     onClick={async () => {
-                        const res = await axios.post(`${BASE_URL}/admin/login`, {
+                        const res = await axios.post(`${BASE_URL}/admin/login/`, {
                             username: email,
                             password: password
                         }, {
